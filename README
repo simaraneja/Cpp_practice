@@ -1,0 +1,149 @@
+cout and cin are the stream functions included in <iostream>
+which is standard library 
+
+std::cout <iostream>
+std::cin <iostream>
+std::endl <iostream>
+std::fixed <iostream>
+std::setprecision <iomanip>
+std::setw <iomanip>
+using std::boolalpha // it is also a sticky stream manipulator and causes 0 and 1 to print as true and false
+
+
+ 
+---------------cout:--------------------
+
+On most program environments, the standard output by default is the screen, and the C++ stream object defined to access it is cout.
+cout << "Hello";  // prints Hello
+cout << Hello;    // prints the content of variable Hello 
+cout << "This " << " is a " << "single C++ statement";
+cout << "I am " << age << " years old and my zipcode is " << zipcode;
+
+
+--------------------cin:--------------------
+
+In most program environments, the standard input by default is the keyboard, and the C++ stream object defined to access it is cin.
+
+cin >> a >> b;
+This is equivalent to:
+cin >> a;
+cin >> b
+
+example
+// cin with strings
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main ()
+{
+  string mystr;
+  cout << "What's your name? ";
+  getline (cin, mystr);
+  cout << "Hello " << mystr << ".\n";
+  cout << "What is your favorite team? ";
+  getline (cin, mystr);
+  cout << "I like " << mystr << " too!\n";
+  return 0;
+}
+
+Output
+What's your name? Homer Simpson
+Hello Homer Simpson.
+What is your favorite team? The Isotopes
+I like The Isotopes too!
+
+
+----------------stringstream:-------------------
+The standard header <sstream> defines a type called stringstream that allows a string to be treated as a stream, and thus allowing extraction or insertion operations from/to strings in the same way as they are performed on cin and cout. This feature is most useful to convert strings to numerical values and vice versa.	
+
+string mystr ("1204");
+int myint;
+stringstream(mystr) >> myint;
+
+// stringstreams
+#include <iostream>
+#include <string>
+#include <sstream>
+using namespace std;
+
+
+Example::
+
+int main ()
+{
+  string mystr;
+  float price=0;
+  int quantity=0;
+
+  cout << "Enter price: ";
+  getline (cin,mystr);
+  stringstream(mystr) >> price;
+  cout << "Enter quantity: ";
+  getline (cin,mystr);
+  stringstream(mystr) >> quantity;
+  cout << "Total price: " << price*quantity << endl;
+  return 0;
+}
+-------------Output:---------------
+
+Enter price: 22.25
+Enter quantity: 7
+Total price: 155.75
+
+
+----------------fixed:---------------
+It is used with the combination of cout as cout will not display the trailing number after decimal if fixed is not used.
+it is used to display the decimal number output in C++
+
+there are two types of paramteres
+*sticky 
+*non-sticky
+
+--------setprecision:----------------
+setprecision is the io manipulator which is used to manipulate the stream.
+it is a paramterized maniplulator which needs parameter to do the task. it main purpose is to tell io how many digits are reqd after decimal.
+setprecision is sticky because once it is set with "fixed" operator, it will set for all the upcoming output..
+
+
+for example: cout << fixed << setprecision(2);
+
+
+
+---------setw----------------------
+setw is another io parameterized  manipulator which do the right intendation of the output.
+it is also used with combination of cout for example
+setw is non-sticky as it is valid only for the next input
+
+*******
+cout << "YEAR" << setw(21) << "Amount on Deposit" << endl;
+cout << setw(4) << year << setw(21) << total_amount << endl;
+**********
+
+ACCESS SPECIFIERS:
+
+There are basically three type of access specifiers 
+public:
+private:
+protected:
+
+
+getline is the function which is equivalent to scanf in C language.
+It expect two parameters getline *********istream& getline (istream&  is, string& str);*******
+first argument is input stream from which it want to read the characters, for example "cin",
+second argument is  the char string/buffer where the input has to be stored.
+
+
+
+class "string" has some inbuilt functions which can be called by the below methods:
+-----functions----- 
+* length -- to get the length of the string
+* substr -- to cut the substring from full string (start_index, end_index)
+
+
+example:
+string name,bookname;
+name.length() == n || > n || < n
+bookname = name.substr(0,n-1)
+
+
