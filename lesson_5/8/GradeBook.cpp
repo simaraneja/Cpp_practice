@@ -133,7 +133,7 @@ void GradeBook::outputGrades()
 	cout << endl;
 
 	for (int test= 0;test<tests;test++) 
-		cout << "Test" << test+1 << " " ;
+		cout << setw(8) << "Test" << test+1 << " " ;
 	
 	cout  << "Average" << endl;
 
